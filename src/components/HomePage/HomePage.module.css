@@ -3,6 +3,7 @@
     height: auto;
     padding-top: 1em;
     padding-bottom: 3em;
+    /* border: 3px solid purple; */
 }
 
 .dark{
@@ -14,7 +15,11 @@
     height: 100%;
     padding: 1em;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(300px, 1fr)
+    );
     grid-template-rows: repeat(1, 330px);
     grid-auto-rows: 330px;
     grid-gap: 1.5em;
@@ -40,3 +45,4 @@
     height: 1.5em;
     border-radius: 5px;
 }
+

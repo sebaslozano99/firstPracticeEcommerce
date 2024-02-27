@@ -8,12 +8,31 @@
     font-family: "Roboto, sans-serif";
     font-weight: 500;
     font-style: normal;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
 }
 
 
+.cartOpenned{
+    overflow-y: hidden;
+}
 
 header ul{
     /* text-decoration: none; */
     list-style: none;
+}
+
+::-webkit-scrollbar{
+    display: inline;
+    width: 1em;
+    padding: 2em;
+}
+
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #ccc;
+    border-radius: 50px;
 }

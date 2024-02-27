@@ -1,8 +1,8 @@
-*{
+/* *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
+} */
 
 
 .header{
@@ -12,10 +12,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 2em 2em;
-    position:sticky;
-    top: 0;
-    z-index: 1;
     background-color: #fff;
+    overflow-y: hidden;
 }
 
 .headerDark{
@@ -86,3 +84,28 @@
     text-decoration: none;
 }
 
+
+
+@media(max-width: 740px){
+    .navBar{
+        width: 18%;
+    }
+}
+
+@media(max-width: 560px){
+    .navBar{
+        width: 22%;
+    }
+}
+
+@media(max-width: 450px){
+    .navBar{
+        width: 30%;
+    }
+}
+
+@media(max-width: 350px){
+    .navBar{
+        width: 35%;
+    }
+}

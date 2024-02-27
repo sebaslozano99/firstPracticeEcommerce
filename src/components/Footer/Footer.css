@@ -59,6 +59,10 @@
 }
 
 
+
+
+
+/* DIV THAT HOLDS INSIDE THE TWO ICONS AND THE TERMS AND CONDITIONS, ETC */
 .sectionTwo .one{
     /* border: 1px solid #fff; */
     display: flex;
@@ -67,13 +71,27 @@
     padding: 1em 2em;
     gap: 50px;
 }
+/* DIV THAT HOLDS INSIDE THE TWO ICONS AND THE TERMS AND CONDITIONS, ETC */
+
+
+
+
+
+/* BOX THAT HOLDS INSIDE THE TWO ICONS */
 
 .sectionTwo .one div:nth-child(1){
-    width: 8%;
+    width: 10%;
     /* border: 1px solid purple; */
     display: flex;
     justify-content: space-between;
 }
+
+/* BOX THAT HOLDS INSIDE THE TWO ICONS */
+
+
+
+
+
 
 .sectionTwo div div button{
     width: 40px;
@@ -87,6 +105,10 @@
 
 
 
+
+
+/* DIV THAT HOLDS INSIDE THE TERMS AND CONDTIONS, COOKIES POLICY, ETC */
+
 .sectionTwo div:nth-child(1) div:nth-child(2){
     /* border: 1px solid red; */
     width: 60%;
@@ -94,6 +116,11 @@
     align-items: center;
     justify-content: space-evenly;
 }
+
+/* DIV THAT HOLDS INSIDE THE TERMS AND CONDTIONS, COOKIES POLICY, ETC */
+
+
+
 
 .sectionTwo div:nth-child(1) div:nth-child(2) p{
     color: #fff;
@@ -128,4 +155,75 @@ hr{
 
 .sectionTwo .two em{
     color: #fff;
+}
+
+
+@media(max-width: 1000px){
+    .sectionTwo .one div:nth-child(1){
+        width: 12%;
+    }
+}
+
+
+
+@media(max-width: 830px){
+    .sectionTwo .one div:nth-child(1){
+        width: 15%;
+    }
+}
+
+@media(max-width: 760px){
+    .sectionTwo .one{
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+
+    .sectionTwo .one div:nth-child(1){
+        width: 20%;
+    }
+
+    .sectionTwo div:nth-child(1) div:nth-child(2){
+        width: 100%;
+    }
+}
+
+
+
+@media(max-width: 450px){
+
+    .sectionOne{
+        flex-direction: column;
+        justify-content:space-evenly;
+        align-items:normal;
+        gap: 20px;
+
+    }
+
+    .sectionOne div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sectionOne div h3{
+        font-size: 1.5em;
+    }
+
+
+
+    .sectionTwo .one{
+        flex-direction: column-reverse;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .sectionTwo .one div:nth-child(1){
+        width: 30%;
+    }
+
+    .sectionTwo div:nth-child(1) div:nth-child(2){
+        width: 100%;
+        /* border: 2px solid yellow; */
+    }
+
 }

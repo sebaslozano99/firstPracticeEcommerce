@@ -40,7 +40,7 @@ const CartHover = ({openCart, openCloseCart}) => {
 
           <div className={styles.thirdDiv}>
             <h2 className={!theme ? styles.h2 : `${styles.h2} ${styles.textsDark}`}>Your Cart is empty</h2>
-            <p className={!theme ? styles.p : `${styles.p} ${styles.textsDark}`}>Looks like You have not added anything to your cart. <br/> Go ahead and explore top categories.</p>
+            {/* <p className={!theme ? styles.p : `${styles.p} ${styles.textsDark}`}>Go ahead and explore top categories.</p> */}
             <Link to="/">
               <Button backgroundColor="30D3F4" padding={15} color="ffffff" handleFunc={openCloseCart} >
                 Explore

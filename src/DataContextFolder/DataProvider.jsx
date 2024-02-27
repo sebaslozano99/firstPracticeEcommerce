@@ -10,6 +10,7 @@ const initialValues = {
   theme: false,
   fetchedData: [],
   cart: [],
+  openCart: false,
   error: "",
   loading: false,
 }
@@ -52,6 +53,11 @@ function reducerFunc(state,action){
         ...state,
         cart: [...state.cart.filter(element => element.id !== action.payload ? element : null)],
       }
+    case "openCart":
+      return {
+        ...state,
+        openCart: !state.openCart,
+      }
     case "selectQuantityOfItems":
       return {
         ...state,
@@ -65,7 +71,7 @@ function reducerFunc(state,action){
 
 function DataProvider({children}) {
   
-    const [{fetchedData, error, loading, theme, cart}, dispatch] = useReducer(reducerFunc, initialValues);
+    const [{fetchedData, error, loading, theme, cart, openCart}, dispatch] = useReducer(reducerFunc, initialValues);
     const cartIds = cart.map(element => element.id); // array of all ids inside cart array
 
     useEffect(() => {
@@ -77,7 +83,7 @@ function DataProvider({children}) {
           dispatch({type: "arrived", payload: data.products});
         }
         catch(error){
-          dispatch({type: "error", payload: error.TypeError});
+          dispatch({type: "error", payload: "Failed to fetch"});
           throw new Error(error);
         }
         finally{
@@ -98,6 +104,7 @@ function DataProvider({children}) {
       theme,
       cart,
       cartIds,
+      openCart,
       handleDispatch: dispatch
     }} >
       {children}

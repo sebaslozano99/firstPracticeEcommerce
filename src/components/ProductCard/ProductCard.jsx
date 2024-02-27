@@ -2,6 +2,7 @@ import {useDataContext} from "../../DataContextFolder/DataProvider";
 import PropTypes from "prop-types";
 import styles from "./ProductCard.module.css";
 import Button from "../Button";
+import popSound from "../../../public/pop.mp3";
 
 
 
@@ -9,11 +10,16 @@ const ProductCard = ({info}) => {
 
   const { cartIds, theme, handleDispatch } = useDataContext();
 
+  function playSoundAddCart(){
+    new Audio(popSound).play();
+    handleDispatch({type: "addToCart", payload:{...info, quantity: 1}});
+  }
+  
   function checkItemIsNotInCart(){
     if(cartIds.includes(info.id)) return;
-    return handleDispatch({type: "addToCart", payload:{...info, quantity: 1}});
+    // return handleDispatch({type: "addToCart", payload:{...info, quantity: 1}});
+    return playSoundAddCart();
   }
-
   
   return (
     <div className={!theme ? styles.card : `${styles.cardDark}`}>
