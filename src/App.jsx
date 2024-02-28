@@ -3,9 +3,7 @@ import { DataProvider } from "./DataContextFolder/DataProvider";
 import Header from "./components/Header/Header.jsx";
 import HomePage from "./components/HomePage/HomePage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import CartHover from "./components/CartHover/CartHover.jsx";
-
-
+import ProductPage from "./pages/ProductPage.jsx";
 
 const App = () => {
 
@@ -15,7 +13,7 @@ const App = () => {
         <Header />
           <Routes>
             <Route path="/"  element={ <HomePage  /> } />
-            <Route path="cart" element={ <CartHover /> } />
+            <Route path="/:product" element={ <ProductPage /> } />
           </Routes>
           <Footer />
       </BrowserRouter>

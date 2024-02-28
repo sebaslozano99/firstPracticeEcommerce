@@ -38,7 +38,6 @@ export default function HomePage() {
   const [showFilter, setShowFilter ] = useState(false);
   const [filter, setFilter] = useState("all");
   const [price, setPrice] = useState(0);
-  // const prevFilter = useRef(filter);
   const filtedDataByPrice = filterItems(fetchedData, price);
 
   function onFilterChangeAdjustPrice(e){

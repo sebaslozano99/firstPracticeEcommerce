@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./ProductCard.module.css";
 import Button from "../Button";
 import popSound from "../../../public/pop.mp3";
+import { Link } from "react-router-dom";
 
 
 
@@ -23,9 +24,11 @@ const ProductCard = ({info}) => {
   
   return (
     <div className={!theme ? styles.card : `${styles.cardDark}`}>
-        <h2 className={!theme ? styles.title :  `${styles.title} ${styles.titleDark}`} >
-            {info.title} 
-        </h2>
+        <Link to={`${info.title}`} style={{textDecoration: "none"}}>
+          <h2 className={!theme ? styles.title :  `${styles.title} ${styles.titleDark}`}>
+              {info.title} 
+          </h2>
+        </Link>
         <img src={info.images[0]} alt={info.title} className={styles.image} />
         <h3 className={theme ? styles.priceDark : ""}>${info.price}</h3>
         <p style={theme ? {color: "#fff"} : {}}>Rate: {info.rating} ⭐</p>
