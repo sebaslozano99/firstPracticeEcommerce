@@ -12,7 +12,7 @@ const ProductPage = () => {
 
   const {product} = useParams(); //name of product that was clicked
   const { fetchedData, theme,cartIds, handleDispatch } = useDataContext();
-  const productClicked = fetchedData.filter(element => element.title === product && element);
+  const [productClicked] = fetchedData.filter(element => element.title === product && element);
 
   function playSoundCart(){
     new Audio(popSound).play();
