@@ -12,7 +12,7 @@ const ProductPage = () => {
 
   const {product} = useParams(); //name of product that was clicked
   const { fetchedData, theme,cartIds, handleDispatch } = useDataContext();
-  const [productClicked] = fetchedData.filter(element => element.title === product && element);
+  const productClicked = fetchedData.filter(element => element.title === product && element);
 
   function playSoundCart(){
     new Audio(popSound).play();
@@ -29,8 +29,8 @@ const ProductPage = () => {
     <div className={!theme ? styles.container : `${styles.container} ${styles.containerDark}`}>
 
       <div className={styles.firstDiv}>
-        <h1>{productClicked.title}</h1>
-        <p>Rating: {productClicked.rating} ⭐</p>
+        <h1 style={theme ? {color: "#fff"} : {}}>{productClicked.title}</h1>
+        <p style={theme ? {color: "#fff"} : {}}>Rating: {productClicked.rating} ⭐</p>
       </div>
 
 
@@ -40,33 +40,33 @@ const ProductPage = () => {
         <div className={styles.priceContainer}>
 
           <div className={styles.divHoldsBeforeAndToday}>
-            <p className={styles.priceBefore}>${productClicked.price + productClicked.discountPercentage}</p>
+            <p className={styles.priceBefore} style={theme ? {color: "#fff"} : {}} >${productClicked.price + productClicked.discountPercentage}</p>
             <p className={styles.todayPrice} >${productClicked.price} <em className={styles.em}>Today</em> </p>
           </div>
 
           <div className={styles.threeBoxContainer}>
             <div className={styles.box}>
-              <FontAwesomeIcon icon={faTruck} className={styles.icon} />
-              <p className={styles.text} >Shipping to your Home</p>
-              <span style={{color: "blue"}}>Free</span>
+              <FontAwesomeIcon icon={faTruck} className={!theme ? styles.icon : `${styles.icon} ${styles.iconDark}`} />
+              <p className={!theme ? styles.text : `${styles.text} ${styles.textDark}`} >Shipping to your Home</p>
+              <span style={!theme ? {color: "blue"} : {color: "orange"}}>Free</span>
             </div>
             <div className={styles.box}>
-              <FontAwesomeIcon icon={faShop} className={styles.icon} />
-              <p className={styles.text} >Pick up at Store</p>
-              <span style={{color: "blue"}}>Free</span>
+              <FontAwesomeIcon icon={faShop} className={!theme ? styles.icon : `${styles.icon} ${styles.iconDark}`} />
+              <p className={!theme ? styles.text : `${styles.text} ${styles.textDark}`} >Pick up at Store</p>
+              <span style={!theme ? {color: "blue"} : {color: "orange"}}>Free</span>
             </div>
             <div className={styles.box}>
-              <FontAwesomeIcon icon={faMotorcycle} className={styles.icon} />
-              <p className={styles.text} >Delivery Today</p>
-              <span style={{color: "blue"}}>Free</span>
+              <FontAwesomeIcon icon={faMotorcycle} className={!theme ? styles.icon : `${styles.icon} ${styles.iconDark}`} />
+              <p className={!theme ? styles.text : `${styles.text} ${styles.textDark}`} >Delivery Today</p>
+              <span style={!theme ? {color: "blue"} : {color: "orange"}}>Free</span>
             </div>
           </div>
 
           <div className={styles.shippingInfo}>
-            <p> You can get your order THE NEXT DAY. Know the exact time once You confirm your shipping address</p>
+            <p style={theme ? {color: "#fff"} : {}}> You can get your order THE NEXT DAY. Know the exact time once You confirm your shipping address</p>
           </div>
 
-          <button className={styles.addToCart} onClick={addItemToCart}>Add to Cart</button>
+          <button className={!theme ? styles.addToCart : `${styles.addToCart} ${styles.addCartDark}`} onClick={addItemToCart}>Add to Cart</button>
 
         </div>
       </div>
