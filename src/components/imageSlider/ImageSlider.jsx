@@ -23,7 +23,7 @@ const ImageSlider = ({images}) => {
     <div className={styles.mainDiv}>
         <div className={styles.floatingDiv}>
             {
-              images.map((element, i) => i < 4 ? 
+              images?.map((element, i) => i < 4 ? 
                 <div key={element} className={index !== i ? styles.imagesBoxes : `${styles.imagesBoxes} ${styles.selected}`} onMouseEnter={() => onHoverChangeIndex(i)} >
                   <img src={element} alt={element} className={styles.imagesInsideBoxes} />
                 </div>
