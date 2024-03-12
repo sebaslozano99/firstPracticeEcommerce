@@ -3,6 +3,7 @@ import { useDataContext } from "../../DataContextFolder/DataProvider";
 import styles from "./HomePage.module.css";
 import ProductCard from "../ProductCard/ProductCard";
 import Loading from "../Loading/Loading";
+import { useSearchParams } from "react-router-dom";
 
 //All Products BreakDown
 // smartphones, laptops, fragrances, groceries, home-decoration, furniture
@@ -36,13 +37,34 @@ export default function HomePage() {
 
   const {fetchedData, error, loading, theme} = useDataContext();
   const [showFilter, setShowFilter ] = useState(false);
-  const [filter, setFilter] = useState("all");
-  const [price, setPrice] = useState(0);
+  // const [filter, setFilter] = useState("all"); 
+  // const [price, setPrice] = useState(0); 
+  const [searchParams, setSearchParams] = useSearchParams({filter: "all", price: 0});
+  const filter = searchParams.get("filter");
+  const price = searchParams.get("price");
   const filtedDataByPrice = filterItems(fetchedData, price);
 
   function onFilterChangeAdjustPrice(e){
-    setFilter(e.target.value);
-    setPrice(0);
+    setSearchParams(prev => {
+      prev.set("filter", e.target.value);
+      return prev;
+    }, { replace: true });
+
+    setSearchParams(prev => {
+      prev.set("price", 0);
+      return prev;
+    }, { replace: true } )
+
+    // setFilter(e.target.value);
+    // setPrice(0);
+  }
+
+
+  function onChangePrice(e){
+    setSearchParams(prev => {
+      prev.set("price", e.target.value);
+      return prev;
+    }, {replace: true} )
   }
 
 
@@ -74,7 +96,7 @@ export default function HomePage() {
 
             <div>
               <label htmlFor="filterType"  style={theme ? {color: "#fff"} : {}}>Price</label>
-              <input type="range" min={0} max={priceRangeAdjuster(filter)} value={price} onChange={(e) => setPrice(e.target.value)} />
+              <input type="range" min={0} max={priceRangeAdjuster(filter)} value={price} onChange={(e) => onChangePrice(e)} />
               <span  style={theme ? {color: "#fff"} : {}} >${price}</span>
             </div>
         </>
