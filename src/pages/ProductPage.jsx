@@ -12,11 +12,7 @@ const ProductPage = () => {
 
   const {product} = useParams(); //name of product that was clicked
   const { fetchedData, theme,cartIds, handleDispatch } = useDataContext();
-<<<<<<<<< Temporary merge branch 1
-  const [productClicked] = fetchedData.filter(element => element.title === product && element);
-=========
   const [productClicked] = fetchedData.filter(element => element.title === product && element); //de-structured array, soo that I have access directly to the object inside
->>>>>>>>> Temporary merge branch 2
 
   function playSoundCart(){
     new Audio(popSound).play();
