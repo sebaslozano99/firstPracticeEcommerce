@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import styles from "./CartHoverItem.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons"; 
 import { useDataContext } from "../../DataContextFolder/DataProvider";
@@ -20,11 +19,11 @@ const CartHoverItem = ({info}) => {
   }
 
   return (
-    <div className={styles.cardContainer}>
-        <img src={info.images[0]} alt={info.title} className={styles.img} />
+    <div className="w-full min-h-40 p-[0.5em] flex items-center justify-around gap-5 rounded-2xl" >
+        <img src={info.images[0]} alt={info.title} className="w-28 rounded-xl" />
 
-        <div className={styles.middleDiv}>
-          <h2 className={!theme ?styles.h2 : `${styles.h2} ${styles.textsDark}`} >{info.title}</h2>
+        <div className="w-[60%] h-[80%] flex flex-col items-center justify-evenly" >
+          <h2 className="text-base font-bold text-center dark:text-white" >{info.title}</h2>
           <select value={quantity} onChange={(e) =>  onChangeQuantity(e, info.id)} >
             {
               Array.from({ length: 5 }, (_,i) => i + 1).map(elem => (
@@ -32,9 +31,9 @@ const CartHoverItem = ({info}) => {
               ))
             }
           </select>
-          <p className={theme ? styles.textsDark : undefined}>${info.price}</p>
+          <p className="dark: text-white">{info.price}</p>
         </div>
-        <FontAwesomeIcon icon={faTrash} className={styles.trash} onClick={() => handleDispatch({type: "deleteItem", payload: info.id}) } style={theme ? {color: "#fff"} : undefined} /> 
+        <FontAwesomeIcon icon={faTrash} className="cursor-pointer transition-all ease-in duration-200 hover:translate-y-[-4px]" onClick={() => handleDispatch({type: "deleteItem", payload: info.id}) } style={theme ? {color: "#fff"} : undefined} /> 
          
     </div>
   )

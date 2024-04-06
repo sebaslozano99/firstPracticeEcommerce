@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useDataContext } from "../../DataContextFolder/DataProvider";
-import styles from "./HomePage.module.css";
 import ProductCard from "../ProductCard/ProductCard";
 import Loading from "../Loading/Loading";
 import { useSearchParams } from "react-router-dom";
@@ -37,8 +36,6 @@ export default function HomePage() {
 
   const {fetchedData, error, loading, theme} = useDataContext();
   const [showFilter, setShowFilter ] = useState(false);
-  // const [filter, setFilter] = useState("all"); 
-  // const [price, setPrice] = useState(0); 
   const [searchParams, setSearchParams] = useSearchParams({filter: "all", price: 0});
   const filter = searchParams.get("filter");
   const price = searchParams.get("price");
@@ -72,15 +69,15 @@ export default function HomePage() {
   if(error === "Failed to fetch") return <p>Something went wrong fetching the data</p>
 
   return (
-    <main className={!theme ? styles.main : `${styles.main} ${styles.dark}`}>
+    <main className={!theme ? "w-full h-auto pt-[1em] pb-[3em]" : `dark w-full h-auto pt-[1em] pb-[3em] bg-[#252525]`}>
 
 
-    <div className={styles.filter}>
+    <div className="flex p-4 gap-[35px]" >
       { showFilter ? 
       
         <>
         
-          <button  onClick={() => setShowFilter(!showFilter)} className={styles.showHide} >&lt;</button> 
+          <button  onClick={() => setShowFilter(!showFilter)} className="text-black bg-stone-300 outline-none border-0 cursor-pointer w-9 h-[1.5em] rounded-md" >&lt;</button> 
 
             <div>
               <label htmlFor="filterType"  style={theme ? {color: "#fff"} : {}} >Filter by:</label>
@@ -101,11 +98,11 @@ export default function HomePage() {
             </div>
         </>
         :
-        <button  onClick={() => setShowFilter(!showFilter)} className={styles.showHide} >&gt;</button> 
+        <button  onClick={() => setShowFilter(!showFilter)} className="text-black bg-stone-300 outline-none border-0 cursor-pointer w-9 h-[1.5em] rounded-md" >&gt;</button> 
       }
     </div>  
 
-      <section className={styles.container}>
+      <section className="w-full h-full p-[1em] grid grid-cols-auto grid-rows-1 auto-rows-[330px] gap-6" >
         
         {
           filter === "all" &&
