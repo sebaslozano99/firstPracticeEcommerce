@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"; 
 import Button from "../Button";
 import CartHover from "../CartHover/CartHover";
+import { useEffect } from "react";
 
 
 
@@ -17,6 +18,13 @@ export default function Header() {
     handleDispatch({type: "openCart"});
   }
 
+  useEffect(() => {
+    if(openCart) {
+      document.body.style.overflowY = "hidden";
+    }else{
+      document.body.style.overflowY = "auto";
+    }
+  }, [openCart])
 
   return (  
     <header className={theme ? "dark w-full h-[7vh] flex justify-between items-center p-[2em] overflow-y-hidden bg-[#252525]" : `w-full h-[7vh] flex justify-between items-center p-[2em] bg-white overflow-y-hidden`} >
