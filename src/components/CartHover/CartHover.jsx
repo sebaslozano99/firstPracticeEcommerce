@@ -35,7 +35,7 @@ const CartHover = ({openCart, openCloseCart}) => {
         !cart.length ?
         <div className={styles.firstDiv}>
           <div className={styles.secondDiv}>
-            <img src={!theme ? "../../undraw_empty_cart_co35.svg" : "../../Empty-bro.svg"} alt="empty_ill" className={styles.img} />
+            <img src="../../undraw_empty_cart_co35.svg" alt="empty_ill" className={styles.img} />
           </div>
 
           <div className={styles.thirdDiv}>
